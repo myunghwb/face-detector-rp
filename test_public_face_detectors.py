@@ -7,12 +7,12 @@ from mtcnn import MTCNN
 
 import time
 
-face_classifier = cv2.CascadeClassifier('opencv_haar_models/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('models/cv_haar/haarcascade_frontalface_default.xml')
 dlib_hog_detector = dlib.get_frontal_face_detector()
-# dlib_predictor = dlib.shape_predictor('dlib_models/shape_predictor_5_face_landmarks.dat')
-dlib_dnn_detector = dlib.cnn_face_detection_model_v1("dlib_models/mmod_human_face_detector.dat")
-cv_dnn_detector = cv2.dnn.readNetFromCaffe("opencv_dnn_models/deploy.prototxt", "opencv_dnn_models/res10_300x300_ssd_iter_140000.caffemodel")
-#cv_dnn_detector = cv2.dnn.readNetFromTensorflow("opencv_dnn_models/opencv_face_detector.pbtxt", "opencv_dnn_models/opencv_face_detector_uint8.pb")
+# dlib_predictor = dlib.shape_predictor('models/dlib/shape_predictor_5_face_landmarks.dat')
+dlib_dnn_detector = dlib.cnn_face_detection_model_v1("models/dlib/mmod_human_face_detector.dat")
+cv_dnn_detector = cv2.dnn.readNetFromCaffe("models/cv_dnn/res10_300x300_ssd_deploy.prototxt", "models/cv_dnn/res10_300x300_ssd_iter_140000.caffemodel")
+#cv_dnn_detector = cv2.dnn.readNetFromTensorflow("models/cv_dnn/opencv_face_detector.pbtxt", "models/cv_dnn/opencv_face_detector_uint8.pb")
 mtcnn_detector = MTCNN()
 
 capture = cv2.VideoCapture(0)
